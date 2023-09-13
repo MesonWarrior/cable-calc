@@ -14,11 +14,11 @@ export const Calculator = observer(() => {
         [calculatorStore.setGroup],
     );
 
-    const subGroupChangeHandler = useCallback(
+    const subgroupChangeHandler = useCallback(
         (value: string | null) => {
-            calculatorStore.setSubGroup(value);
+            calculatorStore.setSubgroup(value);
         },
-        [calculatorStore.setSubGroup],
+        [calculatorStore.setSubgroup],
     );
 
     const changeLengthHandler = useCallback(
@@ -42,9 +42,9 @@ export const Calculator = observer(() => {
             />
             <Autocomplete
                 label="Подгруппа маркаразмера"
-                options={calculatorStore.subGroupList}
+                options={calculatorStore.subgroupList}
                 value={calculatorStore.currentSubGroup}
-                onChange={subGroupChangeHandler}
+                onChange={subgroupChangeHandler}
                 disabled={calculatorStore.currentGroup === null}
             />
             <TextField

@@ -18,7 +18,7 @@ class CalculatorStore {
     @observable length = '';
     @observable result = '';
     @observable currentGroup: string | null = null;
-    @observable currentSubGroup: string | null = null;
+    @observable currentSubgroup: string | null = null;
 
     constructor() {
         makeObservable(this);
@@ -28,17 +28,17 @@ class CalculatorStore {
         return Object.keys(weights);
     }
 
-    @computed get subGroupList() {
+    @computed get subgroupList() {
         return this.currentGroup ? Object.keys(weights[this.currentGroup]) : [];
     }
 
     calculateResult() {
-        if (!this.currentGroup || !this.currentSubGroup) {
+        if (!this.currentGroup || !this.currentSubgroup) {
             toast('Группа или подгруппа не выбрана.', { type: 'error' });
             return '';
         }
 
-        const options = weights[this.currentGroup][this.currentSubGroup];
+        const options = weights[this.currentGroup][this.currentSubgroup];
         const weight = options.find(
             ({ name }) => name === 'Расчетная масса (вес)',
         )?.value;
@@ -65,11 +65,11 @@ class CalculatorStore {
 
     @action setGroup(group: string | null) {
         this.currentGroup = group;
-        this.setSubGroup(null);
+        this.setSubgroup(null);
     }
 
-    @action setSubGroup(subGroup: string | null) {
-        this.currentSubGroup = subGroup;
+    @action setSubgroup(subgroup: string | null) {
+        this.currentSubgroup = subgroup;
     }
 
     @action setLength(length: string) {
