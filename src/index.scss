@@ -1,0 +1,12 @@
+:root {
+    --light-gray: #ddd;
+}
+
+body {
+    margin: 0;
+    background-color: var(--light-gray);
+}
+
+* {
+    box-sizing: border-box;
+}
